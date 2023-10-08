@@ -1,10 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-
-
-const StyledDiv = styled.div`
-display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh"
-`
 
 const Todo = () => {
   const [notes, setNotes] = useState({});
@@ -14,35 +8,34 @@ const Todo = () => {
       const note = event.target.value;
       setNotes(prevNotes => ({
         ...prevNotes,
-        [note]: { note, isDone: false } // You can directly use object shorthand notation
+        [note]: { note, isDone: false }
       }));
 
       event.target.value = "";
     }
   }
 
-  const setIsDone = (event) => {
-    const noteText = event.target.textContent;
+  const setIsDone = (noteText) => {
     setNotes(prevNotes => ({
       ...prevNotes,
-      [noteText]: { ...prevNotes[noteText], isDone: !prevNotes[noteText].isDone } // Object destructuring here
+      [noteText]: { ...prevNotes[noteText], isDone: !prevNotes[noteText].isDone }
     }));
   }
 
   return (
-    <StyledDiv>
+    <div className="container">
       <h1>TODO LIST</h1>
-      <input onKeyDown={(event) => addNote(event)} height={150}/>
+      <input onKeyDown={(event) => addNote(event)} placeholder="Add a to do" />
       {Object.entries(notes).map(([noteKey, note]) => (
         <p
-          onClick={(event) => setIsDone(event)}
+          onClick={() => setIsDone(noteKey)}
           key={noteKey}
           style={{ textDecoration: note.isDone ? 'line-through' : 'none' }}
         >
           {note.note}
         </p>
       ))}
-    </StyledDiv>
+    </div>
   );
 };
 

@@ -1,38 +1,44 @@
-.App {
+/* Container Styles */
+body {
+  background-color: #091235; /* Light background color */
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #fff; /* White background color for the container */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  border-radius: 8px;
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: #333; /* Dark text color */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Input Styles */
+input {
+  width: 90%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #13256d; /* Blue underline */
+  outline: none;
+  margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Note Styles */
+p {
+  font-size: 18px;
+  padding: 10px 0;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p:hover {
+  text-decoration: line-through; /* Strike-through effect on hover */
 }
